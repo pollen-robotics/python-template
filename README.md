@@ -12,7 +12,7 @@ Template code and examples for python project respecting the [PEP8 coding style]
 
 A *.gitignore* file makes sure that the Python temporary files are not committed. It is adapted from [here](https://github.com/github/gitignore/blob/main/Python.gitignore).
 
-git LFS is configured to handle all non script files (3D models, deep learning model, images, etc.). The list of file is defined in *.gitattributes.* Also, a good practice is to use another repo as a submodule containing all the data.
+git LFS could be configured to handle all non script files (3D models, deep learning model, images, etc.). The list of file is defined in *gitattributes_example.* If you want to use LFS rename this file *.gitattributes*. Then run ```git lfs install```. Also, a good practice is to use another repo as a submodule containing all the data.
 
 A git hook can be installed to automatically checks PEP8 compliance before a commit. See *scripts/git_hooks*.
 
