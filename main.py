@@ -17,6 +17,8 @@ def main(args):
     foo = Foo()
     logging.info(foo.private_variable)
 
+    unused_variable = 5
+
     temp = Celsius(37)
     temp.temperature = -30
     logging.info(temp.to_fahrenheit())
