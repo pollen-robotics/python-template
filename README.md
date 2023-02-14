@@ -24,7 +24,7 @@ Visual code is the recommended IDE. Make sure to install the python extension an
 
 Finaly [mypy](https://mypy.readthedocs.io/en/stable/index.html) will statically check type errors. It runs in *strict* mode in this example. Feel free to [release the constraint](https://mypy.readthedocs.io/en/stable/getting_started.html?highlight=strict#strict-mode-and-configuration) if it is not suitable for your project.
 
-These tools are configured in *setup.cfg*.
+These tools are configured in *setup.cfg*. The version of these tools is pre-defined in order to avoid errors between local and remote checks. It is a good practive to keep them up to date.
 
 **A code not compliant with PEP8 guidelines will not be merged.**
 

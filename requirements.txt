@@ -1,4 +1,4 @@
 black
 flake8
 pytest
-mypy
+mypy==1.0.0
