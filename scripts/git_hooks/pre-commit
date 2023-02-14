@@ -16,3 +16,7 @@ echo "-------> Black passed!"
 flake8 .
 echo "-------> Flake8 passed!"
 
+# Run mypy against all code in the `source_code` directory
+mypy .
+echo "-------> Mypy passed!"
+
