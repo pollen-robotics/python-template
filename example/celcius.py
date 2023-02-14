@@ -17,7 +17,7 @@ class Celsius:
         return self._temperature
 
     @temperature.setter
-    def temperature(self, value: float):
+    def temperature(self, value: float) -> None:
         self.logger.info("Setting value...")
         if value < -273.15:
             raise ValueError("Temperature below -273 is not possible")
