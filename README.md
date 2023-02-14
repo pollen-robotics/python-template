@@ -22,6 +22,10 @@ Visual code is the recommended IDE. Make sure to install the python extension an
 
 [Flake8](https://flake8.pycqa.org) will perform complementary checks. Select *flake8* as the [linter for VS Code](https://code.visualstudio.com/docs/python/linting). Errors should be directly indicated within the code.
 
+Finaly [mypy](https://mypy.readthedocs.io/en/stable/index.html) will statically check type errors. It runs in *strict* mode in this example. Feel free to [release the constraint](https://mypy.readthedocs.io/en/stable/getting_started.html?highlight=strict#strict-mode-and-configuration) if it is not suitable for your project.
+
+These tools are configured in *setup.cfg*.
+
 **A code not compliant with PEP8 guidelines will not be merged.**
 
 ## Workflow
