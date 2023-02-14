@@ -8,16 +8,16 @@ class Celsius:
         self.logger = logging.getLogger(__name__)
         self.temperature = temperature
 
-    def to_fahrenheit(self):
+    def to_fahrenheit(self) -> float:
         return (self.temperature * 1.8) + 32
 
     @property
-    def temperature(self):
+    def temperature(self) -> float:
         self.logger.info("Getting value...")
         return self._temperature
 
     @temperature.setter
-    def temperature(self, value):
+    def temperature(self, value: float):
         self.logger.info("Setting value...")
         if value < -273.15:
             raise ValueError("Temperature below -273 is not possible")
