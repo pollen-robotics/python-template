@@ -8,8 +8,8 @@ class Foo:
 
     def __init__(self) -> None:
         """Set up empty slots."""
-        self.logger = logging.getLogger(__name__)
-        self.logger.info("Constructor")
+        self._logger = logging.getLogger(__name__)
+        self._logger.info("Constructor")
         self._private_variable = "private"
         self.public_variable = "public"
 
@@ -22,4 +22,4 @@ class Foo:
         self._private_variable = value
 
     def __del__(self) -> None:
-        self.logger.info("Destructor")
+        self._logger.info("Destructor")
