@@ -17,8 +17,9 @@ pip install -e .
 
 Once this is done, you should be able to import the Python package anywhere on your system with:
 ```
-import python-template
+import python_template
 ```
+*Note: it's ```import python_template``` and not ```python-template```*
 
 ### git
 
