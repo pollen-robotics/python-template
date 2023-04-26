@@ -8,6 +8,18 @@ Template code and examples for python project respecting the [PEP8 coding style]
 
 ## Configuration
 
+### Installation
+
+The dependencies are listed in the ```setup.py``` file and will be installed if you install this package locally with:
+```
+pip install -e .
+```
+
+Once this is done, you should be able to import the Python package anywhere on your system with:
+```
+import python-template
+```
+
 ### git
 
 A *.gitignore* file makes sure that the Python temporary files are not committed. It is adapted from [here](https://github.com/github/gitignore/blob/main/Python.gitignore).
