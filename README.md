@@ -10,16 +10,18 @@ Template code and examples for python project respecting the [PEP8 coding style]
 
 ### Installation
 
-The dependencies are listed in the ```setup.py``` file and will be installed if you install this package locally with:
+The dependencies are listed in the ```setup.cfg``` file and will be installed if you install this package locally with:
 ```
-pip install -e .
+pip install -e .[dev]
 ```
+use *[dev]* for optional development tools.
+
 
 Once this is done, you should be able to import the Python package anywhere on your system with:
 ```
-import python_template
+import example
 ```
-*Note: it's ```import python_template``` and not ```python-template```*
+
 
 ### git
 
