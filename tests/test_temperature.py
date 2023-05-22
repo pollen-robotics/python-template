@@ -1,6 +1,6 @@
 import pytest
 
-from example.celcius import Celsius
+from src.example.celcius import Celsius
 
 
 def test_temperature():

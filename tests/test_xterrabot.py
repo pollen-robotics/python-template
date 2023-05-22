@@ -2,7 +2,7 @@ import pytest
 
 import numpy as np
 
-from example.xterrabot import XTerraBot
+from src.example.xterrabot import XTerraBot
 
 
 def test_xterrabot():

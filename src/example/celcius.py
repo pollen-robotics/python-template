@@ -22,3 +22,10 @@ class Celsius:
         if value < -273.15:
             raise ValueError("Temperature below -273 is not possible")
         self._temperature = value
+
+
+def main():
+    print("Test entry point")
+    temp = Celsius(37)
+    temp.temperature = -30
+    print(temp.to_fahrenheit())
