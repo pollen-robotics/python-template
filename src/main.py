@@ -25,10 +25,6 @@ def main(args: argparse.Namespace) -> int:
 
     xt_bot = XTerraBot()
     logging.info(xt_bot.get_object_in_gripper_frame())
-    a = xt_bot.get_object_in_gripper_frame()
-    print(type(a))
-    print(a.shape)
-    print(a.dtype)
 
     return 0
 
