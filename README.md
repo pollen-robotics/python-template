@@ -8,6 +8,21 @@ Template code and examples for python project respecting the [PEP8 coding style]
 
 ## Configuration
 
+### Installation
+
+The dependencies are listed in the ```setup.cfg``` file and will be installed if you install this package locally with:
+```
+pip install -e .[dev]
+```
+use *[dev]* for optional development tools.
+
+
+Once this is done, you should be able to import the Python package anywhere on your system with:
+```
+import example
+```
+
+
 ### git
 
 A *.gitignore* file makes sure that the Python temporary files are not committed. It is adapted from [here](https://github.com/github/gitignore/blob/main/Python.gitignore).
@@ -34,7 +49,7 @@ These tools are configured in *setup.cfg*. The version of these tools is pre-def
 
 The git workflow is based on [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow):
 
-![git workflow](docs/branches.svg)
+![git workflow](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=805)
 
 The default branch is **develop** which is the working branch. **main** is dedicated to stable code (release) only. Both of them are protected, no one should push directly into them. Any new development **MUST** be done in a feature branch, forked from develop, and then merged back to develop through a pull request. When a code considered to be stable, develop can be also merged to main with a pull request.
 
@@ -79,3 +94,10 @@ Then, if all tests are sucessful:
  coverage report
  ```
  These tests are automatically performed by a github action when a pull request is created.
+
+ ## Coding style
+
+ The main guidelines for the coding style is defined by [PEP8](https://peps.python.org/pep-0008/). You can directly refer to the examples in the code.
+
+ Specific choices are detailed in dedicated document:
+ - for the mathematical notation please refer to [Coding convention for Maths](docs/convention_maths.md)
