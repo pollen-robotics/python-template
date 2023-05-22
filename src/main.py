@@ -4,6 +4,7 @@ import argparse
 
 from example.foo import Foo
 from example.celcius import Celsius
+from example.xterrabot import XTerraBot
 
 
 # the main function could be called from somewhere else
@@ -21,6 +22,13 @@ def main(args: argparse.Namespace) -> int:
     temp = Celsius(37)
     temp.temperature = -30
     logging.info(temp.to_fahrenheit())
+
+    xt_bot = XTerraBot()
+    logging.info(xt_bot.get_object_in_gripper_frame())
+    a = xt_bot.get_object_in_gripper_frame()
+    print(type(a))
+    print(a.shape)
+    print(a.dtype)
 
     return 0
 

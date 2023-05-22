@@ -1,5 +1,6 @@
 import logging
 import numpy as np
+import numpy.typing as npt
 
 
 class XTerraBot:
@@ -7,7 +8,7 @@ class XTerraBot:
     https://www.mecharithm.com/
     homogenous-transformation-matrices-configurations-in-robotics/."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self._logger = logging.getLogger(__name__)
         # b is the mobile base
         # d is the camera
@@ -30,7 +31,7 @@ class XTerraBot:
             [[0, 0, -1, 400], [0, -1, 0, 50], [-1, 0, 0, 300], [0, 0, 0, 1]]
         )  # a is the root
 
-    def get_object_in_gripper_frame(self) -> np.ndarray:
+    def get_object_in_gripper_frame(self) -> npt.NDArray[np.float64]:
         T_c_e = (
             np.linalg.inv(self._T_b_c)
             @ np.linalg.inv(self._T_d_b)
@@ -38,4 +39,4 @@ class XTerraBot:
             # @ self._T_a_d ## inv(self._T_a_d) @ self._T_a_d = 1
             @ self._T_d_e
         )
-        return T_c_e
+        return np.array(T_c_e)
