@@ -1,12 +1,14 @@
+import sys
 import logging
 import argparse
 
 from example.foo import Foo
 from example.celcius import Celsius
+from example.xterrabot import XTerraBot
 
 
 # the main function could be called from somewhere else
-def main(args):
+def main(args: argparse.Namespace) -> int:
     logging.info("str param: {}".format(args.str_param))
     logging.info("bool param: {}".format(args.bool_param))
     logging.info("int param: {}".format(args.int_param))
@@ -20,6 +22,11 @@ def main(args):
     temp = Celsius(37)
     temp.temperature = -30
     logging.info(temp.to_fahrenheit())
+
+    xt_bot = XTerraBot()
+    logging.info(xt_bot.get_object_in_gripper_frame())
+
+    return 0
 
 
 if __name__ == "__main__":
@@ -35,4 +42,4 @@ if __name__ == "__main__":
     if args.verbose:
         logging.basicConfig(level=logging.INFO)
 
-    main(args)
+    sys.exit(main(args))
