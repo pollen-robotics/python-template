@@ -11,6 +11,7 @@ jobs:
       - uses: psf/black@stable
         with:
           options: "--check --verbose"
+          version: "23.3.0"
 
   flake8:
     runs-on: ubuntu-20.04
