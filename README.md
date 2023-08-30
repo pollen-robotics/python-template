@@ -95,6 +95,8 @@ Then, if all tests are sucessful:
  ```
  These tests are automatically performed by a github action when a pull request is created.
 
+ _Note that when creating a new repo from this template, you will need to first configure the Make badge action in the [pytest.yml](https://github.com/pollen-robotics/python-template/blob/develop/.github/workflows/pytest.yml#L42-L53) file. Follow [those instructions](https://github.com/schneegans/dynamic-badges-action/tree/v1.6.0/#configuration) if you don't have a gist secret and id yet._ 
+
  ## Coding style
 
  The main guidelines for the coding style is defined by [PEP8](https://peps.python.org/pep-0008/). You can directly refer to the examples in the code.
