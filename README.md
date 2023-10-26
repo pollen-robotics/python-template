@@ -5,10 +5,35 @@ Template code and examples for python project respecting the [PEP8 coding style]
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![linter](https://github.com/pollen-robotics/python-coding-guidelines/actions/workflows/lint.yml/badge.svg) ![pytest](https://github.com/pollen-robotics/python-coding-guidelines/actions/workflows/pytest.yml/badge.svg) ![coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/FabienDanieau/58642e8fe4589e710e26627e39ff92d7/raw/covbadge.json)
 
 
+## Quick start
+
+List of steps to follow to adapt the template to your project.
+
+1. Make your repo with "Use this template" button
+2. Clone the new repo
+3. [Recommended] Make a virtual environment
+4. [Optional] Set up [git lfs](#git) and *.gitattributes*
+4. Activate pre-commit hook
+```console
+mv scripts/git_hooks/pre-commit .git/hooks/
+```
+5. Install dev tools
+```console
+pip install -e .[dev]
+```
+6. [Configure](#ide---linting) Visual Code with the linters
+7. [Adapt](#unit-tests-and-test-coverage) workflow and bagdes links to this repo
+
 
 ## Configuration
 
-### Installation
+## Installation
+
+Dependencies are detailed in the `setup.cfg` file. To install this package locally, run:
+```
+pip install -e .[dev]
+```
+Include *[dev]* for optional development tools.
 
 The dependencies are listed in the ```setup.cfg``` file and will be installed if you install this package locally with:
 ```
@@ -18,28 +43,37 @@ use *[dev]* for optional development tools.
 
 
 Once this is done, you should be able to import the Python package anywhere on your system with:
-```
+```console
 import example
+```
+
+An exemple executable is also installed
+```console
+example_entry_point
 ```
 
 
 ### git
 
-A *.gitignore* file makes sure that the Python temporary files are not committed. It is adapted from [here](https://github.com/github/gitignore/blob/main/Python.gitignore).
+A *.gitignore* file ensures that the Python temporary files are not committed. It is adapted from [here](https://github.com/github/gitignore/blob/main/Python.gitignore).
 
-git LFS could be configured to handle all non script files (3D models, deep learning model, images, etc.). The list of file is defined in *gitattributes_example.* If you want to use LFS rename this file *.gitattributes*. Then run ```git lfs install```. Also, a good practice is to use another repo as a submodule containing all the data.
+[git LFS](https://git-lfs.com/) can be configured to manage all non-script files (3D models, deep learning models, images, etc.). The list of files is defined in *gitattributes_example*. If you wish to utilize LFS, rename this file to *.gitattributes* and then run ```git lfs install```. It's also a good practice to maintain another repository as a submodule containing all the data.
 
-A git hook can be installed to automatically checks PEP8 compliance before a commit. See *scripts/git_hooks*.
+A git hook can be set up to automatically check for PEP8 compliance before committing. Refer to *scripts/git_hooks*. Installing this is recommended as the GitHub workflows will perform the same checks.
+
 
 ### IDE - Linting
 
-Visual code is the recommended IDE. Make sure to install the python extension and [configure](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0) VS code to automatically format the code with [black](https://black.readthedocs.io).
+Visual Studio Code is the recommended IDE. Ensure you have the Python extension installed and [configure](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0) VS Code to auto-format your code using [black](https://black.readthedocs.io).
 
-[Flake8](https://flake8.pycqa.org) will perform complementary checks. Select *flake8* as the [linter for VS Code](https://code.visualstudio.com/docs/python/linting). Errors should be directly indicated within the code.
+[isort](https://pycqa.github.io/isort/) verifies the order of Python imports. [Set up](https://github.com/microsoft/vscode-isort#import-sorting-on-save) VS Code to handle this automatically.
 
-Finaly [mypy](https://mypy.readthedocs.io/en/stable/index.html) will statically check type errors. It runs in *strict* mode in this example. Feel free to [release the constraints](https://mypy.readthedocs.io/en/stable/getting_started.html?highlight=strict#strict-mode-and-configuration) if it is not suitable for your project.
+[Flake8](https://flake8.pycqa.org) will conduct additional checks. Choose **flake8** as the [linter for VS Code](https://code.visualstudio.com/docs/python/linting). Errors will be directly highlighted within the code.
 
-These tools are configured in *setup.cfg*. The version of these tools is pre-defined in order to avoid errors between local and remote checks. It is a good practive to keep them up to date.
+Lastly, [mypy](https://mypy.readthedocs.io/en/stable/index.html) will perform static type checking. In this guide, it's set to run in **strict** mode. Feel free to [adjust the constraints](https://mypy.readthedocs.io/en/stable/getting_started.html?highlight=strict#strict-mode-and-configuration) if they don't align with your project's needs.
+
+These tools are configured in the **setup.cfg** file. Their versions are predefined to prevent discrepancies between local and remote checks. It's advisable to keep them updated.
+
 
 **A code not compliant with PEP8 guidelines will not be merged.**
 
@@ -51,7 +85,8 @@ The git workflow is based on [gitflow](https://www.atlassian.com/git/tutorials/c
 
 ![git workflow](https://wac-cdn.atlassian.com/dam/jcr:34c86360-8dea-4be4-92f7-6597d4d5bfae/02%20Feature%20branches.svg?cdnVersion=805)
 
-The default branch is **develop** which is the working branch. **main** is dedicated to stable code (release) only. Both of them are protected, no one should push directly into them. Any new development **MUST** be done in a feature branch, forked from develop, and then merged back to develop through a pull request. When a code considered to be stable, develop can be also merged to main with a pull request.
+The default branch is **develop**, which serves as the working branch. **main** is reserved solely for stable code (releases). Both of these branches are protected, meaning direct pushes are disallowed. All new development **MUST** commence in a feature branch, derived from develop, and then be merged back into develop via a pull request. Once the code is deemed stable, the develop branch can also be merged into main through another pull request.
+
 
 ### Issues
 
