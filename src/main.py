@@ -1,9 +1,9 @@
-import sys
-import logging
 import argparse
+import logging
+import sys
 
-from example.foo import Foo
 from example.celcius import Celsius
+from example.foo import Foo
 from example.xterrabot import XTerraBot
 
 
