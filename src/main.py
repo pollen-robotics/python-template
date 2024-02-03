@@ -2,6 +2,7 @@ import argparse
 import logging
 import sys
 
+from example.cam_config import CamConfig, get_config_file_path, get_config_files_names
 from example.celcius import Celsius
 from example.foo import Foo
 from example.xterrabot import XTerraBot
@@ -26,6 +27,10 @@ def main(args: argparse.Namespace) -> int:
     xt_bot = XTerraBot()
     logging.info(xt_bot.get_object_in_gripper_frame())
 
+    # usage of data stored in config_files
+    cam_conf = CamConfig(get_config_file_path(args.config))
+    logging.info(cam_conf.to_string())
+
     return 0
 
 
@@ -37,8 +42,19 @@ if __name__ == "__main__":
     parser.add_argument("--int_param", type=int, default=5)
     parser.add_argument("--float_param", type=float, default=2.5)
     parser.add_argument("--verbose", action="store_true", default=False)
+
+    valid_configs = get_config_files_names()
+    parser.add_argument(
+        "--config",
+        type=str,
+        required=True,
+        choices=valid_configs,
+        help=f"Configutation file name : {valid_configs}",
+    )
+
     args = parser.parse_args()
 
+    # activate the --verbose to see more output
     if args.verbose:
         logging.basicConfig(level=logging.INFO)
 
