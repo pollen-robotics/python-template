@@ -13,16 +13,20 @@ List of steps to follow to adapt the template to your project.
 2. Clone the new repo
 3. [Recommended] Make a virtual environment
 4. [Optional] Set up [git lfs](#git) and *.gitattributes*
-4. Activate pre-commit hook
+5. Activate [pre-commit hook](#git)
 ```console
-mv scripts/git_hooks/pre-commit .git/hooks/
+./scripts/setup_git_hooks.sh
 ```
-5. Install dev tools
+6. [Configure](#ide---linting) visual studio
+```console
+./scripts/setup_vscode_extensions.sh
+./scripts/setup_vscode_config.sh
+```
+7. Install dev tools
 ```console
 pip install -e .[dev]
 ```
-6. [Configure](#ide---linting) Visual Code with the linters
-7. [Adapt](#unit-tests-and-test-coverage) workflow and bagdes links to this repo
+8. [Adapt](#unit-tests-and-test-coverage) workflow and bagdes links to this repo
 
 
 ## Configuration
@@ -59,10 +63,12 @@ A *.gitignore* file ensures that the Python temporary files are not committed. I
 
 [git LFS](https://git-lfs.com/) can be configured to manage all non-script files (3D models, deep learning models, images, etc.). The list of files is defined in *gitattributes_example*. If you wish to utilize LFS, rename this file to *.gitattributes* and then run ```git lfs install```. It's also a good practice to maintain another repository as a submodule containing all the data.
 
-A git hook can be set up to automatically check for PEP8 compliance before committing. Refer to *scripts/git_hooks*. Installing this is recommended as the GitHub workflows will perform the same checks.
+A git hook can be set up to automatically check for PEP8 compliance before committing. Refer to *scripts/git_hooks*. Installing this is recommended as the GitHub workflows will perform the same checks. The script *./scripts/setup_git_hooks.sh* will do this for you.
 
 
 ### IDE - Linting
+
+TL;DR Use *./scripts/setup_vscode_extensions.sh* and *./scripts/setup_vscode_config.sh*
 
 Visual Studio Code is the recommended IDE. Ensure you have the Python extension installed and [configure](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0) VS Code to auto-format your code using [black](https://black.readthedocs.io).
 
@@ -72,7 +78,7 @@ Visual Studio Code is the recommended IDE. Ensure you have the Python extension 
 
 Lastly, [mypy](https://mypy.readthedocs.io/en/stable/index.html) will perform static type checking. In this guide, it's set to run in **strict** mode. Feel free to [adjust the constraints](https://mypy.readthedocs.io/en/stable/getting_started.html?highlight=strict#strict-mode-and-configuration) if they don't align with your project's needs.
 
-These tools are configured in the **setup.cfg** file. Their versions are predefined to prevent discrepancies between local and remote checks. It's advisable to keep them updated.
+These tools are configured in the **setup.cfg** and **pyproject.toml** files. Their versions are predefined to prevent discrepancies between local and remote checks. It's advisable to keep them updated.
 
 
 **A code not compliant with PEP8 guidelines will not be merged.**
