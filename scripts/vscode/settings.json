@@ -10,4 +10,6 @@
         "--profile",
         "black"
     ],
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "flake8.importStrategy": "fromEnvironment"
 }
