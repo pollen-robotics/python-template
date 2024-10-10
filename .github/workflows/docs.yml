@@ -36,7 +36,7 @@ jobs:
         pip install .[dev]
 
     - name: Generate Documentation
-      run: pdoc example --output-dir docs -logo "https://pollen-robotics.github.io/python-template/POLLEN_LOGO.png" --logo-link "https://www.pollen-robotics.com"
+      run: pdoc example --output-dir docs --logo "https://pollen-robotics.github.io/python-template/POLLEN_LOGO.png" --logo-link "https://www.pollen-robotics.com"
 
     - name: Archive Documentation
       uses: actions/upload-artifact@v4
