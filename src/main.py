@@ -1,4 +1,4 @@
-"""Main script for the application
+"""Main script for the application.
 
 This script processes command-line arguments, performs various operations using classes and
 methods from the `example` module, and uses data stored in configuration files. It logs
