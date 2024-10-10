@@ -150,5 +150,6 @@ Then, if all tests are sucessful:
 The documentation is generated with [pdoc](https://pdoc.dev), automatically with the CI. To generate it locally you can run:
 
 ```
- pdoc example --output-dir docs
+ pdoc example --output-dir docs --logo https://www.pollen-robotics.com/wp-content/themes/bambi-theme-main/assets/images/pollen_robotics_logo.webp --logo-link https://www.pollen-robotics.com
+
  ```
