@@ -45,12 +45,10 @@ class Foo:
         self._logger.info("Destructor")
 
     @overload
-    def doingstuffs(self, var: int, var2: float) -> None:
-        ...
+    def doingstuffs(self, var: int, var2: float) -> None: ...
 
     @overload
-    def doingstuffs(self, var: int) -> None:
-        ...
+    def doingstuffs(self, var: int) -> None: ...
 
     def doingstuffs(self, var: Any = None, var2: Any = None) -> None:
         """An overloaded method that takes one or two arguments and logs their values and types.
