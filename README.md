@@ -144,3 +144,11 @@ Then, if all tests are sucessful:
 
  Specific choices are detailed in dedicated document:
  - for the mathematical notation please refer to [Coding convention for Maths](docs/convention_maths.md)
+
+ ## Documentation
+
+The documentation is generated with [pdoc](https://pdoc.dev), automatically with the CI. To generate it locally you can run:
+
+```
+ pdoc example --output-dir docs
+ ```
