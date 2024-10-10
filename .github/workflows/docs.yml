@@ -1,4 +1,4 @@
-name: Generate Python Documentation
+name: Documentation
 
 on: [pull_request]
 
