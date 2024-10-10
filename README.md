@@ -150,6 +150,10 @@ Then, if all tests are sucessful:
 The documentation is generated with [pdoc](https://pdoc.dev), automatically with the CI. To generate it locally you can run:
 
 ```
- pdoc example --output-dir docs --logo https://www.pollen-robotics.com/wp-content/themes/bambi-theme-main/assets/images/pollen_robotics_logo.webp --logo-link https://www.pollen-robotics.com
+ pdoc example --output-dir docs --logo https://www.pollen-robotics.com/wp-content/themes/bambi-theme-main/assets/images/pollen_robotics_logo.webp --logo-link https://www.pollen-robotics.com --docformat google
+ ```
 
+ The documentation relies on the provided docstings with the google style. [pydocstyle](http://www.pydocstyle.org/en/stable/) is used to enforced this style.
+ ```
+ pydocstyle src/ --convention google --count
  ```

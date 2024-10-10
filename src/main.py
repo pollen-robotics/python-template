@@ -1,3 +1,12 @@
+"""Main script for the application.
+
+This script processes command-line arguments, performs various operations using classes and
+methods from the `example` module, and uses data stored in configuration files. It logs
+information about the provided arguments and demonstrates the usage of the application's
+features.
+
+"""
+
 import argparse
 import logging
 import sys
@@ -8,8 +17,21 @@ from example.foo import Foo
 from example.xterrabot import XTerraBot
 
 
-# the main function could be called from somewhere else
 def main(args: argparse.Namespace) -> int:
+    """The main function that processes command-line arguments and performs various operations.
+
+    This function logs information about the provided arguments, demonstrates the usage of
+    classes and methods from the example module, and uses data stored in configuration
+    files. It returns 0 to indicate successful execution.
+
+    Args:
+        args (argparse.Namespace): The namespace containing the command-line arguments.
+
+    Returns:
+        int: Exit code indicating the success (0) of the application.
+
+
+    """
     logging.info("str param: {}".format(args.str_param))
     logging.info("bool param: {}".format(args.bool_param))
     logging.info("int param: {}".format(args.int_param))
