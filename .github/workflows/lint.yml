@@ -3,7 +3,6 @@ name: Linter
 on: [push]
 
 jobs:
-
   black:
     runs-on: ubuntu-22.04
     steps:
@@ -21,13 +20,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-          cache: 'pip' # caching pip dependencies
+          cache: "pip" # caching pip dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install .[dev]
-      - name : Check import order
-        run : isort . -c
+      - name: Check import order
+        run: isort . -c
 
   flake8:
     runs-on: ubuntu-22.04
@@ -37,7 +36,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-          cache: 'pip' # caching pip dependencies
+          cache: "pip" # caching pip dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -47,7 +46,7 @@ jobs:
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # option --exit-zero can be added to this line to set these errors as warnings
-          flake8 . --count --statistics --config setup.cfg
+          flake8 . --count --statistics
 
   mypy:
     runs-on: ubuntu-22.04
@@ -57,10 +56,10 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-          cache: 'pip' # caching pip dependencies
+          cache: "pip" # caching pip dependencies
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install .[dev]
-      - name : Lint with mypy
-        run : mypy . -v
+      - name: Lint with mypy
+        run: mypy . -v
