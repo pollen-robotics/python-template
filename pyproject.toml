@@ -9,7 +9,7 @@ authors = [{ name = "Pollen Robotics", email = "contact@pollen-robotics.com" }]
 description = "Python template project"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = ["numpy==1.25.1"]
+dependencies = ["numpy>1.25.1"]
 
 [project.optional-dependencies]
 dev = [
@@ -29,7 +29,7 @@ example_entry_point = "example.celcius:main"
 camera_entry_point = "example.cam_config:main"
 
 [tool.flake8]
-exclude = ["tests"]
+exclude = ["tests", ".venv"]
 max-line-length = 128
 extend-ignore = ["E203"]
 max-complexity = 10

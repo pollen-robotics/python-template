@@ -168,3 +168,6 @@ cython_debug/
 docs/*.html
 docs/*.js
 docs/example/
+
+# UV
+uv.lock
