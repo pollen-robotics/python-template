@@ -1,6 +1,51 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "example"
+version = "0.1.0"
+authors = [{ name = "Pollen Robotics", email = "contact@pollen-robotics.com" }]
+description = "Python template project"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>1.25.1"]
+
+[project.optional-dependencies]
+dev = [
+    "black==25.1.0",
+    "flake8==7.2.0",
+    "Flake8-pyproject==1.2.3",
+    "pytest==8.3.5",
+    "coverage==7.8.0",
+    "mypy==1.15.0",
+    "isort==6.0.1",
+    "pdoc==15.0.1",
+    "pydocstyle==6.3.0",
+]
+
+[project.scripts]
+example_entry_point = "example.celcius:main"
+camera_entry_point = "example.cam_config:main"
+
+[tool.flake8]
+exclude = ["tests", ".venv"]
+max-line-length = 128
+extend-ignore = ["E203"]
+max-complexity = 10
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = ["tests"]
+strict = true
+plugins = ["numpy.typing.mypy_plugin"]
+explicit_package_bases = true
 
 [tool.isort]
 profile = "black"

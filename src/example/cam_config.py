@@ -6,6 +6,7 @@ functions for retrieving the names of available configuration files and their pa
 """
 
 import json
+import logging
 from importlib.resources import files
 from typing import Any, List
 
@@ -78,3 +79,16 @@ def get_config_file_path(name: str) -> Any:
         if file.stem == name:
             return file.resolve()
     return None
+
+
+def main() -> None:
+    """The main function that demonstrates the usage of the CamConfig class.
+
+    This function creates an instance of the CamConfig class, reads the camera configuration
+    data from a JSON file, and prints the configuration details. It also activates logging at
+    the INFO level.
+    """
+    logging.basicConfig(level=logging.INFO)
+
+    cam_conf = CamConfig(get_config_file_path("CONFIG_IMX296"))
+    logging.info(cam_conf.to_string())
